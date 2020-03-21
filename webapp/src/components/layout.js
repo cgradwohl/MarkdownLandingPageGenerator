@@ -13,6 +13,8 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
+  // a static query cannot use any parameters (use page queries for that)
+  // only one instnace of useStaticQuery can be used in a JS file
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
