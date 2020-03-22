@@ -1,4 +1,3 @@
-/** @jsx jsx */
 /**
  * Layout component that queries for data
  * with Gatsby's useStaticQuery component
@@ -7,34 +6,33 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useStaticQuery, graphql } from 'gatsby';
-import { jsx } from 'theme-ui';
+// import { useStaticQuery, graphql } from 'gatsby';
 
-import Header from './header';
+// import Header from './header';
 import './layout.css';
 
+// eslint-disable-next-line arrow-body-style
 const Layout = ({ children }) => {
   // a static query cannot use any parameters (use page queries for that)
   // only one instnace of useStaticQuery can be used in a JS file
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
+  // const data = useStaticQuery(graphql`
+  //   query SiteTitleQuery {
+  //     site {
+  //       siteMetadata {
+  //         title
+  //       }
+  //     }
+  //   }
+  // `);
 
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      {/* <Header siteTitle={data.site.siteMetadata.title} /> */}
       <div
-        sx={{
+        style={{
           margin: '0 auto',
           maxWidth: 960,
           padding: '0 1.0875rem 1.45rem',
-          color: 'primary',
         }}
       >
         <main>{children}</main>

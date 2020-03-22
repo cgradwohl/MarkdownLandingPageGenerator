@@ -7,8 +7,6 @@ export default {
   ...deep,
   colors: {
     ...deep.colors,
-    text: '#000',
-    primary: 'green',
-    secondary: 'yellow',
+    // override here
   },
 };
