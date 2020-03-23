@@ -59,7 +59,7 @@
     "GraphqlLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/lambda/markdownlandingpage-dev-graphql"
+        "LogGroupName": "/aws/lambda/helloworld-dev-graphql"
       }
     },
     "IamRoleLambdaExecution": {
@@ -87,7 +87,7 @@
               "Fn::Join": [
                 "-",
                 [
-                  "markdownlandingpage-dev",
+                  "helloworld-dev",
                   "lambda"
                 ]
               ]
@@ -103,7 +103,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/markdownlandingpage-dev*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/helloworld-dev*:*"
                     }
                   ]
                 },
@@ -114,7 +114,7 @@
                   ],
                   "Resource": [
                     {
-                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/markdownlandingpage-dev*:*:*"
+                      "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/helloworld-dev*:*:*"
                     }
                   ]
                 }
@@ -127,7 +127,7 @@
           "Fn::Join": [
             "-",
             [
-              "markdownlandingpage-dev",
+              "helloworld-dev",
               {
                 "Ref": "AWS::Region"
               },
@@ -190,9 +190,9 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/markdownlandingpage/dev/1584946254010-2020-03-23T06:50:54.010Z/markdownlandingpage.zip"
+          "S3Key": "serverless/helloworld/dev/1584948077940-2020-03-23T07:21:17.940Z/helloworld.zip"
         },
-        "FunctionName": "markdownlandingpage-dev-graphql",
+        "FunctionName": "helloworld-dev-graphql",
         "Handler": "s_graphql.handler",
         "MemorySize": 1024,
         "Role": {
@@ -209,20 +209,20 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GraphqlLambdaVersionCfkMSjnAO3oDnMgNY7JK4V5Y8mz3Es7DLx5kZrOOwu0": {
+    "GraphqlLambdaVersion1twaLuJrxzClTpWJXwUvp97gWT5Uj4Xi7NdQ5JvmGo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GraphqlLambdaFunction"
         },
-        "CodeSha256": "r2XyGNvLnyYF0C5ZsVdEZ6pLsU7YHvEaZVPQ3E/n/UM="
+        "CodeSha256": "f5gmTBjsbotobCjiXeSEplLAUfLVGmPytv9AsCEOuKY="
       }
     },
     "ApiGatewayRestApi": {
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
-        "Name": "dev-markdownlandingpage",
+        "Name": "dev-helloworld",
         "EndpointConfiguration": {
           "Types": [
             "EDGE"
@@ -377,7 +377,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1584946243424": {
+    "ApiGatewayDeployment1584948069286": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -431,7 +431,7 @@
     "ApiGatewayLogGroup": {
       "Type": "AWS::Logs::LogGroup",
       "Properties": {
-        "LogGroupName": "/aws/api-gateway/markdownlandingpage-dev"
+        "LogGroupName": "/aws/api-gateway/helloworld-dev"
       }
     },
     "CustomApiGatewayAccountCloudWatchRole": {
@@ -446,6 +446,90 @@
         }
       }
     },
+    "IamRoleCustomResourcesLambdaExecution": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Principal": {
+                "Service": [
+                  "lambda.amazonaws.com"
+                ]
+              },
+              "Action": [
+                "sts:AssumeRole"
+              ]
+            }
+          ]
+        },
+        "Policies": [
+          {
+            "PolicyName": {
+              "Fn::Join": [
+                "-",
+                [
+                  "dev",
+                  "helloworld",
+                  "custom-resources-lambda"
+                ]
+              ]
+            },
+            "PolicyDocument": {
+              "Version": "2012-10-17",
+              "Statement": [
+                {
+                  "Effect": "Allow",
+                  "Resource": {
+                    "Fn::Join": [
+                      ":",
+                      [
+                        "arn",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        "iam:",
+                        {
+                          "Ref": "AWS::AccountId"
+                        },
+                        "role/*"
+                      ]
+                    ]
+                  },
+                  "Action": [
+                    "iam:AttachRolePolicy",
+                    "iam:CreateRole",
+                    "iam:ListAttachedRolePolicies",
+                    "iam:PassRole"
+                  ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Resource": {
+                    "Fn::Join": [
+                      ":",
+                      [
+                        "arn",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        "apigateway:*::/account"
+                      ]
+                    ]
+                  },
+                  "Action": [
+                    "apigateway:GET",
+                    "apigateway:PATCH"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
     "CustomDashresourceDashapigwDashcwDashroleLambdaFunction": {
       "Type": "AWS::Lambda::Function",
       "Properties": {
@@ -453,21 +537,28 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/markdownlandingpage/dev/1584946254010-2020-03-23T06:50:54.010Z/custom-resources.zip"
+          "S3Key": "serverless/helloworld/dev/1584948077940-2020-03-23T07:21:17.940Z/custom-resources.zip"
         },
-        "FunctionName": "markdownlandingpage-dev-custom-resource-apigw-cw-role",
+        "FunctionName": "helloworld-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
         "MemorySize": 1024,
         "Runtime": "nodejs12.x",
         "Timeout": 180,
-        "Role": "arn:aws:iam::770422195241:role/SFProRole-cgradwohl"
+        "Role": {
+          "Fn::GetAtt": [
+            "IamRoleCustomResourcesLambdaExecution",
+            "Arn"
+          ]
+        }
       },
-      "DependsOn": []
+      "DependsOn": [
+        "IamRoleCustomResourcesLambdaExecution"
+      ]
     },
     "CloudWatchLogsSubscriptionFilterGraphqlLogGroup": {
       "Type": "AWS::Logs::SubscriptionFilter",
       "Properties": {
-        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:ssJp7T1f9ZdQn7ZpPp#PBdMHcT0L2lxWfBK5D#markdownlandingpage#dev",
+        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:ssJp7T1f9ZdQn7ZpPp#zYzvghxFcQ1YwbhMz4#helloworld#dev",
         "FilterPattern": "?\"REPORT RequestId: \" ?\"SERVERLESS_ENTERPRISE\"",
         "LogGroupName": {
           "Ref": "GraphqlLogGroup"
@@ -477,7 +568,7 @@
     "CloudWatchLogsSubscriptionFilterApiGatewayLogGroup": {
       "Type": "AWS::Logs::SubscriptionFilter",
       "Properties": {
-        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:ssJp7T1f9ZdQn7ZpPp#PBdMHcT0L2lxWfBK5D#markdownlandingpage#dev",
+        "DestinationArn": "arn:aws:logs:us-east-1:802587217904:destination:ssJp7T1f9ZdQn7ZpPp#zYzvghxFcQ1YwbhMz4#helloworld#dev",
         "FilterPattern": "\"SLS_ACCESS_LOG\"",
         "LogGroupName": {
           "Ref": "ApiGatewayLogGroup"
@@ -502,7 +593,7 @@
     "GraphqlLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GraphqlLambdaVersionCfkMSjnAO3oDnMgNY7JK4V5Y8mz3Es7DLx5kZrOOwu0"
+        "Ref": "GraphqlLambdaVersion1twaLuJrxzClTpWJXwUvp97gWT5Uj4Xi7NdQ5JvmGo"
       }
     },
     "ServiceEndpoint": {

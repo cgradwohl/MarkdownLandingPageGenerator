@@ -1,12 +1,11 @@
 org: crits
-app: helloworld
-service: markdownlandingpage
+app: markdownlandingpage-server
+service: helloworld
 
 provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
-  cfnRole: arn:aws:iam::770422195241:role/SFProRole-cgradwohl
 
 functions:
   graphql:
