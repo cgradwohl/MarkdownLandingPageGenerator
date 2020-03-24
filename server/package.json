@@ -14,6 +14,6 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc",
-    "deploy": "npm run build & serverless deploy"
+    "deploy": "npm run build & serverless deploy --aws-profile serverless-admin"
   }
 }
