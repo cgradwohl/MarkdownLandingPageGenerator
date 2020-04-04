@@ -9,14 +9,15 @@ module.exports = {
     'gatsby-plugin-theme-ui',
     'gatsby-plugin-react-helmet',
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
         // Arbitrary name for the remote schema Query type
-        typeName: "MDLAPI",
-        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
-        fieldName: "mdlapi",
+        typeName: 'MDLAPI',
+        // Field under which the remote schema will be accessible.
+        // You'll use this in your Gatsby query
+        fieldName: 'mdlapi',
         // Url to query from
-        url: "https://thfzdb5ajf.execute-api.us-east-1.amazonaws.com/dev/graphql",
+        url: 'https://thfzdb5ajf.execute-api.us-east-1.amazonaws.com/dev/graphql',
       },
     },
     {
