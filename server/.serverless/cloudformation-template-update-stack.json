@@ -190,7 +190,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1586029130528-2020-04-04T19:38:50.528Z/helloworld.zip"
+          "S3Key": "serverless/helloworld/dev/1586029216555-2020-04-04T19:40:16.555Z/helloworld.zip"
         },
         "FunctionName": "helloworld-dev-graphql",
         "Handler": "s_graphql.handler",
@@ -209,14 +209,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GraphqlLambdaVersionZ5gJdii8tYwr7JCSSwmdM2IJLWAusKhyYFHmnT4lio": {
+    "GraphqlLambdaVersionTqS1RhNByvsq6UTJXYmOgDnxAjmOm5kjX3FmoOOzyo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GraphqlLambdaFunction"
         },
-        "CodeSha256": "RQnXyEd9qi/+vEBLZj2iM/iCuj4RYq97FGVurw1o69g="
+        "CodeSha256": "CSo51kVbG4lD27M6QCIHoqHbxJKb3AYdEtQv5oMwm+Q="
       }
     },
     "ApiGatewayRestApi": {
@@ -377,7 +377,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1586029122225": {
+    "ApiGatewayDeployment1586029208992": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -537,7 +537,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1586029130528-2020-04-04T19:38:50.528Z/custom-resources.zip"
+          "S3Key": "serverless/helloworld/dev/1586029216555-2020-04-04T19:40:16.555Z/custom-resources.zip"
         },
         "FunctionName": "helloworld-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -593,7 +593,7 @@
     "GraphqlLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GraphqlLambdaVersionZ5gJdii8tYwr7JCSSwmdM2IJLWAusKhyYFHmnT4lio"
+        "Ref": "GraphqlLambdaVersionTqS1RhNByvsq6UTJXYmOgDnxAjmOm5kjX3FmoOOzyo"
       }
     },
     "ServiceEndpoint": {
