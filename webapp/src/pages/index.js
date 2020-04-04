@@ -6,6 +6,12 @@ import {
 } from 'gatsby';
 
 import {
+  useQuery,
+} from 'react-apollo-hooks';
+
+import gql from 'graphql-tag';
+
+import {
   Button,
   Heading,
   // Box,
@@ -42,13 +48,28 @@ const IndexPage = () => {
     } 
   `);
 
+
+  // DATA A RUNTIME
+  const liveData = useQuery(gql`
+    query {
+      hello {
+        world
+      }
+    }
+  `);
+
   return (
     <Layout>
       <SEO title="Markdown Landing Page" />
       <Heading fontSize={[5, 6, 7]}>Markdown Landing Page</Heading>
       <Flex flexDirection="column">
         <p>Create an HTML landing page from Markdown.</p>
-        <p>FROM SERVER: {data.mdlapi.hello.world}</p>
+        <p>FROM SERVER, AT BUILD TIME: {data.mdlapi.hello.world}</p>
+        {
+          liveData.loading
+            ? <p>LOADING....</p>
+            : <p>FROM SERVER, AT RUNTIME: {liveData.data.hello.world}</p>
+        }
         {
           isAuthenticated()
             ? <span>Hello! {user.nickname}</span>

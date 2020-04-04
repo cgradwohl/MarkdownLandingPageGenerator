@@ -190,7 +190,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1586029216555-2020-04-04T19:40:16.555Z/helloworld.zip"
+          "S3Key": "serverless/helloworld/dev/1586031224292-2020-04-04T20:13:44.292Z/helloworld.zip"
         },
         "FunctionName": "helloworld-dev-graphql",
         "Handler": "s_graphql.handler",
@@ -209,14 +209,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GraphqlLambdaVersionTqS1RhNByvsq6UTJXYmOgDnxAjmOm5kjX3FmoOOzyo": {
+    "GraphqlLambdaVersionXRtcaWC3YkhMOZWy6jGjpgWuG8uljgfw7wq13G8R0": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GraphqlLambdaFunction"
         },
-        "CodeSha256": "CSo51kVbG4lD27M6QCIHoqHbxJKb3AYdEtQv5oMwm+Q="
+        "CodeSha256": "h3jV7D+falRYs+28EzO06t7l/xgcUVu2sjDv528afCo="
       }
     },
     "ApiGatewayRestApi": {
@@ -377,7 +377,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1586029208992": {
+    "ApiGatewayDeployment1586031216174": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -537,7 +537,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1586029216555-2020-04-04T19:40:16.555Z/custom-resources.zip"
+          "S3Key": "serverless/helloworld/dev/1586031224292-2020-04-04T20:13:44.292Z/custom-resources.zip"
         },
         "FunctionName": "helloworld-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -593,7 +593,7 @@
     "GraphqlLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GraphqlLambdaVersionTqS1RhNByvsq6UTJXYmOgDnxAjmOm5kjX3FmoOOzyo"
+        "Ref": "GraphqlLambdaVersionXRtcaWC3YkhMOZWy6jGjpgWuG8uljgfw7wq13G8R0"
       }
     },
     "ServiceEndpoint": {
