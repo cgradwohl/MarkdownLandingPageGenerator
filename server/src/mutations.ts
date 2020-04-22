@@ -1,6 +1,6 @@
 import { getItem } from 'simple-dynamodb';
 
-export const updateItem = async ({ userId }: { userId: string }): Promise<User> => {
+export const updateUser = async ({ userId }: { userId: string }): Promise<User> => {
   // USE AN ORM INSTEAD OF simple-dynamodb !!!!!!!
 
   let user = await getItem({

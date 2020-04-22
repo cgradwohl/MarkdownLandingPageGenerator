@@ -1,11 +1,14 @@
 org: crits
 app: markdownlandingpage-server
 service: helloworld
+profile: 
 
 provider:
   name: aws
   runtime: nodejs12.x
   stage: dev
+  # YOU CAN DEFINE WHICH AWS PROFILE TO USE HERE :)
+  profile: serverless-admin
   environment:
     USER_TABLE: ${self:service}-users-${self:provider.stage}
   iamRoleStatements:
