@@ -1,13 +1,24 @@
 import { ApolloServer, gql } from "apollo-server-lambda";
 
+import { updateUser } from './mutations';
 // this is where we define the shape of our API
 const schema = gql`
   type Hello {
     world: String
   }
 
+  type User {
+    userId: String,
+    createdAt: String,
+    lastSignedInAt: String
+  }
+
   type Query {
     hello: Hello
+  }
+
+  type Mutation {
+    updateUser(userId: String): User 
   }
 `
 
@@ -17,6 +28,10 @@ const resolvers = {
     hello: () => ({
       world: "hello there my human creatures."
     })
+  },
+
+  Mutation: {
+    updateUser
   }
 }
 
