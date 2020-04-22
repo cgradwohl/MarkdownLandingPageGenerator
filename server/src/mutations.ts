@@ -1,5 +1,7 @@
 import { getItem, updateItem } from 'simple-dynamodb';
-
+/**
+ * USE AN ORM HERE PLEASE INSTEAD OF simple-dynamodb
+ */
 export const updateUser = async (_: any, params: UserParams): Promise<User> => {
   // see if user exists
   // if not: update createdAt
