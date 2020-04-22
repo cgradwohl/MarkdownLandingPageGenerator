@@ -225,7 +225,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/helloworld/dev/1587517000897-2020-04-22T00:56:40.897Z/helloworld.zip"
+                "S3Key": "serverless/helloworld/dev/1587517560946-2020-04-22T01:06:00.946Z/helloworld.zip"
               },
               "FunctionName": "helloworld-dev-graphql",
               "Handler": "s_graphql.handler",
@@ -249,14 +249,14 @@
               "IamRoleLambdaExecution"
             ]
           },
-          "GraphqlLambdaVersion5kxe0OoWXBmzmv8RJI3bRvZl7nfGhyATVHo48gm8h2I": {
+          "GraphqlLambdaVersionLFr8xxb1WPgSNvSl8zsT2hEO2F8EtE6jZlhO9OEnoUw": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GraphqlLambdaFunction"
               },
-              "CodeSha256": "+HG7g20Duh9pAaM1uznlma002Y7e9F/XDQ6JT1TLRAY="
+              "CodeSha256": "xVKQ/i0fpK2Rod0KGfFrNcRK4AdskKW3g76pOYSbOCw="
             }
           },
           "ApiGatewayRestApi": {
@@ -417,7 +417,7 @@
               "MethodResponses": []
             }
           },
-          "ApiGatewayDeployment1587516990723": {
+          "ApiGatewayDeployment1587517553617": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -577,7 +577,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/helloworld/dev/1587517000897-2020-04-22T00:56:40.897Z/custom-resources.zip"
+                "S3Key": "serverless/helloworld/dev/1587517560946-2020-04-22T01:06:00.946Z/custom-resources.zip"
               },
               "FunctionName": "helloworld-dev-custom-resource-apigw-cw-role",
               "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -655,7 +655,7 @@
           "GraphqlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GraphqlLambdaVersion5kxe0OoWXBmzmv8RJI3bRvZl7nfGhyATVHo48gm8h2I"
+              "Ref": "GraphqlLambdaVersionLFr8xxb1WPgSNvSl8zsT2hEO2F8EtE6jZlhO9OEnoUw"
             }
           },
           "ServiceEndpoint": {
@@ -824,7 +824,7 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "GraphqlLambdaVersion5kxe0OoWXBmzmv8RJI3bRvZl7nfGhyATVHo48gm8h2I"
+        "versionLogicalId": "GraphqlLambdaVersionLFr8xxb1WPgSNvSl8zsT2hEO2F8EtE6jZlhO9OEnoUw"
       }
     },
     "resources": {
@@ -865,7 +865,7 @@
     "artifact": "/Users/casa/cgradwohl/courses/MarkdownLandingPageGenerator/server/.serverless/helloworld.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/helloworld/dev/1587517000897-2020-04-22T00:56:40.897Z",
+    "artifactDirectoryName": "serverless/helloworld/dev/1587517560946-2020-04-22T01:06:00.946Z",
     "artifact": "helloworld.zip"
   }
 }
