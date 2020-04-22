@@ -117,6 +117,18 @@
                       "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/helloworld-dev*:*:*"
                     }
                   ]
+                },
+                {
+                  "Effect": "Allow",
+                  "Action": [
+                    "dynamodb:Query",
+                    "dynamodb:Scan",
+                    "dynamodb:GetItem",
+                    "dynamodb:PutItem",
+                    "dynamodb:UpdateItem",
+                    "dynamodb:DeleteItem"
+                  ],
+                  "Resource": "arn:aws:dynamodb:us-east-1:*:table/helloworld-users-dev"
                 }
               ]
             }
@@ -190,7 +202,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1586031224292-2020-04-04T20:13:44.292Z/helloworld.zip"
+          "S3Key": "serverless/helloworld/dev/1587517000897-2020-04-22T00:56:40.897Z/helloworld.zip"
         },
         "FunctionName": "helloworld-dev-graphql",
         "Handler": "s_graphql.handler",
@@ -202,21 +214,26 @@
           ]
         },
         "Runtime": "nodejs12.x",
-        "Timeout": 6
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "USER_TABLE": "helloworld-users-dev"
+          }
+        }
       },
       "DependsOn": [
         "GraphqlLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
-    "GraphqlLambdaVersionXRtcaWC3YkhMOZWy6jGjpgWuG8uljgfw7wq13G8R0": {
+    "GraphqlLambdaVersion5kxe0OoWXBmzmv8RJI3bRvZl7nfGhyATVHo48gm8h2I": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GraphqlLambdaFunction"
         },
-        "CodeSha256": "h3jV7D+falRYs+28EzO06t7l/xgcUVu2sjDv528afCo="
+        "CodeSha256": "+HG7g20Duh9pAaM1uznlma002Y7e9F/XDQ6JT1TLRAY="
       }
     },
     "ApiGatewayRestApi": {
@@ -377,7 +394,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1586031216174": {
+    "ApiGatewayDeployment1587516990723": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -537,7 +554,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1586031224292-2020-04-04T20:13:44.292Z/custom-resources.zip"
+          "S3Key": "serverless/helloworld/dev/1587517000897-2020-04-22T00:56:40.897Z/custom-resources.zip"
         },
         "FunctionName": "helloworld-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -554,6 +571,28 @@
       "DependsOn": [
         "IamRoleCustomResourcesLambdaExecution"
       ]
+    },
+    "UsersTable": {
+      "Type": "AWS::DynamoDB::Table",
+      "Properties": {
+        "AttributeDefinitions": [
+          {
+            "AttributeName": "userId",
+            "AttributeType": "S"
+          }
+        ],
+        "KeySchema": [
+          {
+            "AttributeName": "userId",
+            "KeyType": "HASH"
+          }
+        ],
+        "ProvisionedThroughput": {
+          "ReadCapacityUnits": 1,
+          "WriteCapacityUnits": 1
+        },
+        "TableName": "helloworld-users-dev"
+      }
     },
     "CloudWatchLogsSubscriptionFilterGraphqlLogGroup": {
       "Type": "AWS::Logs::SubscriptionFilter",
@@ -593,7 +632,7 @@
     "GraphqlLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GraphqlLambdaVersionXRtcaWC3YkhMOZWy6jGjpgWuG8uljgfw7wq13G8R0"
+        "Ref": "GraphqlLambdaVersion5kxe0OoWXBmzmv8RJI3bRvZl7nfGhyATVHo48gm8h2I"
       }
     },
     "ServiceEndpoint": {
