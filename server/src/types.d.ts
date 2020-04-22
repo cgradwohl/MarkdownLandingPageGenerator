@@ -3,3 +3,7 @@ type User = {
   createdAt: Date | string;
   lastSignedInAt: Date | string;
 };
+
+type UserParams = {
+  userId: string;
+};

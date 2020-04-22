@@ -202,7 +202,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1587517560946-2020-04-22T01:06:00.946Z/helloworld.zip"
+          "S3Key": "serverless/helloworld/dev/1587517975355-2020-04-22T01:12:55.355Z/helloworld.zip"
         },
         "FunctionName": "helloworld-dev-graphql",
         "Handler": "s_graphql.handler",
@@ -226,14 +226,14 @@
         "IamRoleLambdaExecution"
       ]
     },
-    "GraphqlLambdaVersionLFr8xxb1WPgSNvSl8zsT2hEO2F8EtE6jZlhO9OEnoUw": {
+    "GraphqlLambdaVersionltgcDojaGqbHkm4otfobBng2neZ84C3mqg4AU6GN30": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "GraphqlLambdaFunction"
         },
-        "CodeSha256": "xVKQ/i0fpK2Rod0KGfFrNcRK4AdskKW3g76pOYSbOCw="
+        "CodeSha256": "6QOEqzJ+HKi/+DsbyaJjmJ3PGDlvTpZGB2PtlBSqe4o="
       }
     },
     "ApiGatewayRestApi": {
@@ -394,7 +394,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1587517553617": {
+    "ApiGatewayDeployment1587517966034": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -554,7 +554,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/helloworld/dev/1587517560946-2020-04-22T01:06:00.946Z/custom-resources.zip"
+          "S3Key": "serverless/helloworld/dev/1587517975355-2020-04-22T01:12:55.355Z/custom-resources.zip"
         },
         "FunctionName": "helloworld-dev-custom-resource-apigw-cw-role",
         "Handler": "apiGatewayCloudWatchRole/handler.handler",
@@ -632,7 +632,7 @@
     "GraphqlLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "GraphqlLambdaVersionLFr8xxb1WPgSNvSl8zsT2hEO2F8EtE6jZlhO9OEnoUw"
+        "Ref": "GraphqlLambdaVersionltgcDojaGqbHkm4otfobBng2neZ84C3mqg4AU6GN30"
       }
     },
     "ServiceEndpoint": {
